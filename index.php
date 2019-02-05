@@ -12,21 +12,19 @@
     <link rel="stylesheet" type="text/css" href="style/main.css">
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg ml navbar-dark bg-dark">
       <a class="navbar-brand" href="index.php">Preistabelle</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="navbar-nav">
           <button class="indexbutton btn btn-dark" onclick="window.location.href='login.php'"><?php echo $lang->lang_login; ?></button>
           <button  class="indexbutton btn btn-dark" onclick="window.location.href='register.php'"><?php echo $lang->lang_register;?></button>
-          <button  class="indexbutton btn btn-dark" onclick="window.location.href='add.php'"><?php echo $lang->lang_add;?></button>
-          <form class="form-inline my-2 my-lg-0" method="get">
+          <button  class="indexbutton btn btn-dark" onclick="window.location.href='admin/index.php'">Admin</button>
+          <form class="ml-auto form-inline my-2 my-lg-0" method="get">
           <input class="form-control mr-sm-1" type="text" name="search" placeholder="Suche" maxlength="255">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Los</button>
-        </form>
-        </div>
+          <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Los</button>
+      </div>
       </div>
     </nav>
     <div id="header">
@@ -112,6 +110,6 @@
    </table>
  </section>
  <hr>
-<!-- <p align="center">made by <a href="https://github.com/legiarrd">Legiarrd</a></p> -->
+ <p align="center">made by <a href="https://github.com/legiarrd">Legiarrd</a></p>
   </body>
 </html>

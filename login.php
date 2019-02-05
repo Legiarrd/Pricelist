@@ -19,6 +19,7 @@
         <div class="navbar-nav">
           <button class="indexbutton btn btn-dark active" onclick="window.location.href='login.php'"><?php echo $lang->lang_login; ?></button>
           <button  class="indexbutton btn btn-dark" onclick="window.location.href='register.php'"><?php echo $lang->lang_register;?></button>
+          <button  class="indexbutton btn btn-dark" onclick="window.location.href='index.php'">Zurück</button>
         </div>
       </div>
     </nav>
@@ -34,7 +35,7 @@
       </label>
     </div>
     <div class="form-group">
-      <button class="btn btn-primary" form-control" type="submit" name="submit" disabled><?php echo $lang->lang_login;?></button>
+      <button class="btn btn-primary" type="submit" name="submit" disabled><?php echo $lang->lang_login;?></button>
     </form>
   </div>
   </body>
