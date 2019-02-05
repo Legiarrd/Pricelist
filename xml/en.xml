@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<strings>
+  <lang_pricelist>Preisliste</lang_pricelist>
+  <lang_username>username</lang_username>
+  <lang_password>password</lang_password>
+  <lang_password_verify>verify password</lang_password_verify>
+  <lang_email>email</lang_email>
+  <lang_register>register</lang_register>
+  <lang_login>login</lang_login>
+  <lang_register_created>Account wurde erstellt.</lang_register_created>
+  <lang_register_username_under_min>Ihr Username ist zu kurz. Bitte nehmen Sie einen anderen.</lang_register_username_under_min>
+  <lang_register_password_under_min>Ihr Passwort ist zu kurz. Bitte nehmen Sie einen anderen.</lang_register_password_under_min>
+  <lang_password_not_equal>Passwort stimmt nicht überein</lang_password_not_equal>
+</strings>

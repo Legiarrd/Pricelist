@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<strings>
+  <lang_de>Deutsch</lang_de>
+  <lang_en>Englisch</lang_en>
+  <lang_pricelist>Preisliste</lang_pricelist>
+  <lang_username>Benutzername</lang_username>
+  <lang_password>Passwort</lang_password>
+  <lang_password_verify>Passwort bestätigen</lang_password_verify>
+  <lang_email>Email Adresse</lang_email>
+  <lang_register>Registrieren</lang_register>
+  <lang_login>Anmelden</lang_login>
+  <lang_add>Eintrag hinzufügen</lang_add>
+  <lang_register_created>Account wurde erstellt.</lang_register_created>
+  <lang_register_username_under_min>Ihr Username ist zu kurz. Bitte nehmen Sie einen anderen.</lang_register_username_under_min>
+  <lang_register_password_under_min>Ihr Passwort ist zu kurz. Bitte nehmen Sie einen anderen.</lang_register_password_under_min>
+  <lang_password_not_equal>Passwort stimmt nicht überein</lang_password_not_equal>
+  <lang_table_item>Artikel</lang_table_item>
+  <lang_table_category>Kategorie</lang_table_category>
+  <lang_table_pricetag>Preis in EUR</lang_table_pricetag>
+  <lang_table_store>Markt</lang_table_store>
+</strings>
