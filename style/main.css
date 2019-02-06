@@ -18,11 +18,11 @@ a {
     color: black;
 }
 input {
-  text-align: center;
+  text-align: left;
 }
 input[type=number] {
   width: 5em;
-  text-align: center;
+  text-align: left;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

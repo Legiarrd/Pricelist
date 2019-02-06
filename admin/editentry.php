@@ -62,20 +62,28 @@ function id() {
   </nav>
   <br>
   <form action ="../php/editentry.php" method="post">
+  <input id="idfield" class="numinput form-control" type="text" name="itemnumber" value="<?php id();?>" hidden>
     <div class="form-group">
     <label>Artikel
-    <input class="form-control" type="text" name="item" size="72" value="<?php item(); ?>" required>
+      <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon2">ID: <?php id();?></span>
+    </div>
+    <input class="form-control" type="text" name="item" size="74" value="<?php item(); ?>" required>
+  </div>
   </label>
 </div>
   <div class="form-group">
-    <label>ID
-  <input id="idfield" class="numinput form-control" type="text" name="itemnumber" value="<?php id();?>" readonly>
-</label>
   <label>Kategorie
     <input class="form-control" type="text" name="category" value="<?php category(); ?>" required>
   </label>
-  <label>Preis in €
-    <input class="form-control" type="number" step="0.01" name="pricetag" size="5" value="<?php pricetag(); ?>" required>
+  <label>Preis
+    <div class="input-group mb-3">
+    <div class="input-group-append">
+  <span class="input-group-text" id="basic-addon2">€</span>
+</div>
+    <input class="form-control" type="number" step="0.01" name="pricetag" value="<?php pricetag(); ?>" required>
+    </div>
   </label>
   <label>Markt
     <input class="form-control" type="text" name="store" value="<?php store(); ?>" required>
