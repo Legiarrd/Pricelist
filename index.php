@@ -9,9 +9,9 @@ session_start();
   <head>
     <meta charset="utf-8">
     <title><?php echo $lang->lang_pricelist;?></title>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style/main.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg ml navbar-dark bg-dark">
@@ -20,18 +20,27 @@ session_start();
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <button class="indexbutton btn btn-dark" onclick="window.location.href='login.php'"><?php echo $lang->lang_login; ?></button>
-          <button  class="indexbutton btn btn-dark" onclick="window.location.href='register.php'"><?php echo $lang->lang_register;?></button>
-          <button  class="indexbutton btn btn-dark" onclick="window.location.href='admin/index.php'">Admin</button>
+          <?php if (@$_SESSION['userid'] == false) {
+            echo '<a class=" btn btn-dark" href="login.php">Anmelden</a>';
+            echo '<a class=" btn btn-dark" href="register.php">Registrieren</a>';
+          } else {
+            echo '<a class=" btn btn-dark" href="admin/index.php">Admin Panel</a>';
+          }
+          ?>
           <div class="ml-auto">
           <form class="form-inline my-2 my-lg-0" method="get">
           <input class="form-control mr-sm-1" type="text" name="search" placeholder="Nach Artikel suchen" maxlength="255" size="70">
           <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Los</button>
+          <?php if (@$_SESSION['userid'] == true) {
+            echo '<a class=" btn btn-dark" href="php/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>';
+          }
+          ?>
         </form>
         </div>
       </div>
       </div>
     </nav>
+
   <section class="table">
     <table>
       <tr>
