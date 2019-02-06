@@ -40,7 +40,9 @@ if ($_SESSION == true) {
     </div>
     <div class="form-group">
       <button class="btn btn-primary" type="submit" name="submit"><?php echo $lang->lang_login;?></button>
+      <p><a class="btn btn-link" href="#">Passwort vergessen?</a></p>
+    </div>
+
     </form>
-  </div>
   </body>
 </html>
