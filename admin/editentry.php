@@ -21,7 +21,7 @@ function pricetag() {
   $entryid = $_GET['edit'];
   $idsearch = $pdo-> prepare("SELECT * FROM itemtable WHERE id = ?");
   $idsearch -> execute(array($entryid));
-  while($row = $idsearch->fetch()) {echo $row['pricetag'];}
+  while($row = $idsearch->fetch()) {echo floatval($row['pricetag']);}
 }
 function category() {
   include '../php/sql.php';
@@ -45,6 +45,7 @@ function id() {
   <head>
     <meta charset="utf-8">
     <title><?php echo $lang->lang_register;?></title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../style/main.css">
   </head>
@@ -55,27 +56,29 @@ function id() {
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <div class="navbar-nav">
-        <button class="indexbutton btn btn-dark" onclick="window.location.href='edit.php'">Zurück</button>
+        <a class="btn btn-dark"href='edit.php'><i class="fas fa-chevron-left"></i> Zurück</a>
       </div>
     </div>
   </nav>
   <br>
   <form action ="../php/editentry.php" method="post">
-    <input type="number" name="itemnumber" value="<?php id();?>" hidden>
     <div class="form-group">
     <label>Artikel
-    <input class="form-control" type="text" name="item" size="64" value="<?php item(); ?>">
+    <input class="form-control" type="text" name="item" size="72" value="<?php item(); ?>" required>
   </label>
 </div>
   <div class="form-group">
+    <label>ID
+  <input id="idfield" class="numinput form-control" type="text" name="itemnumber" value="<?php id();?>" readonly>
+</label>
   <label>Kategorie
-    <input class="form-control" type="text" name="category" value="<?php category(); ?>">
+    <input class="form-control" type="text" name="category" value="<?php category(); ?>" required>
   </label>
-  <label>Preis in EUR
-    <input class="form-control" type="text" name="pricetag" size="5" value="<?php pricetag(); ?>">
+  <label>Preis in €
+    <input class="form-control" type="number" step="0.01" name="pricetag" size="5" value="<?php pricetag(); ?>" required>
   </label>
   <label>Markt
-    <input class="form-control" type="text" name="store" value="<?php store(); ?>">
+    <input class="form-control" type="text" name="store" value="<?php store(); ?>" required>
   </label>
 </div>
   <div class="form-group">

@@ -35,7 +35,7 @@ if ($_SESSION == true) {
         <input class="form-control" type="email" name="email" minlength="3" placeholder="name@domain.tld" required>
       </label>
       <label><?php echo $lang->lang_password;?>:
-        <input class="form-control" type="password" name="password" minlength="8" placeholder="password" required>
+        <input class="form-control" type="password" name="password" minlength="6" placeholder="password" required>
       </label>
     </div>
     <div class="form-group">

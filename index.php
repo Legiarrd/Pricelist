@@ -26,13 +26,16 @@ session_start();
           } else {
             echo '<a class=" btn btn-dark" href="admin/index.php">Admin Panel</a>';
           }
-          ?>
+          if(@$_GET['search'] OR @$_GET['sort'] OR @$_GET['sortbycat'] OR @$_GET['sortbysto']) {
+          echo "<a class='btn btn-dark' href='index.php'>Zurück</a>";
+          };
+        ?>
           <div class="ml-auto">
           <form class="form-inline my-2 my-lg-0" method="get">
           <input class="form-control mr-sm-1" type="text" name="search" placeholder="Nach Artikel suchen" maxlength="255" size="70">
           <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Los</button>
           <?php if (@$_SESSION['userid'] == true) {
-            echo '<a class=" btn btn-dark" href="php/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>';
+            echo '<a class="btn btn-dark" href="php/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>';
           }
           ?>
         </form>
@@ -40,7 +43,6 @@ session_start();
       </div>
       </div>
     </nav>
-
   <section class="table">
     <table>
       <tr>
@@ -55,16 +57,13 @@ session_start();
     $sbc = @$_GET['sortbycat'];
     $sbs = @$_GET['sortbysto'];
     if ($sbc == "yes") {
-      echo "<p class='mb-0'><a class='btn btn-link btn-lg' href='index.php'>Zurück</a></p>";
       sortbycat();
     }
     else {
       if ($sbs == "yes") {
-        echo "<p class='mb-0'><a class='btn btn-link btn-lg' href='index.php'>Zurück</a></p>>";
         sortbysto();
       } else {
         if ($search) {
-          echo "<p class='mb-0'><a class='btn btn-link btn-lg' href='index.php'>Zurück</a></p>";
           $select = "SELECT * FROM itemtable WHERE item LIKE '%$search%'";
           foreach ($pdo -> query($select) as $row) {
             echo "<tr><td>".$row['item']."</td>";
@@ -74,7 +73,6 @@ session_start();
           }
         } else {
           if ($sort == "yes") {
-          echo "<p class='mb-0'><a class='btn btn-link btn-lg' href='index.php'>Zurück</a></p>";
             order();
           } else {
       foreach ($pdo -> query($table) as $row) {
@@ -122,6 +120,6 @@ session_start();
    </table>
  </section>
  <hr>
- <p align="center">made by <a href="https://github.com/legiarrd">Legiarrd</a></p>
+ <!--<p align="center">made by <a href="https://github.com/legiarrd">Legiarrd</a></p> -->
   </body>
 </html>

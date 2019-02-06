@@ -24,14 +24,16 @@ require '../php/itemtable.php';
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="navbar-nav">
-          <button class="indexbutton btn btn-dark" onclick="window.location.href='index.php'">Admin Panel</button>
-          <button class="indexbutton btn btn-dark active" onclick="window.location.href='edit.php'">Einträge bearbeiten</button>
-          <button  class="indexbutton btn btn-dark" onclick="window.location.href='add.php'">Eintrag hinzufügen</button>
+          <a class="btn btn-dark" href='index.php'>Admin Panel</a>
+          <a class="btn btn-dark active" href='edit.php'>Einträge bearbeiten</a>
+          <a class="btn btn-dark" href='add.php'>Eintrag hinzufügen</a>
+          <a class="btn btn-dark" href='users.php'>Users</a>
+          <a class="btn btn-dark" href='#' onclick="alert('Funktion wird im späteren Verlauf eingefügt')">Account bearbeiten</a>
         </div>
         <div class=" collapse navbar-collapse justify-content-end">
           <ul class="navbar-nav">
-          <button  class="indexbutton btn btn-dark" onclick="window.location.href='../index.php'"><i class="fas fa-home"></i> Zur Startseite</button>
-          <button  class="indexbutton btn navbar-btn btn-dark" onclick="window.location.href='../php/logout.php'"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            <a class="btn btn-dark" href='../index.php'><i class="fas fa-home"></i> Zur Startseite</a>
+            <a class="btn navbar-btn btn-dark"href='../php/logout.php'><i class="fas fa-sign-out-alt"></i> Logout</a>
         </ul>
         </div>
       </div>

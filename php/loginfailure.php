@@ -18,7 +18,10 @@
       </div>
     </div>
   </nav>
-  <br>
-  <p>Ihre eingebenen Daten sind falsch. Bitte versuchen Sie es erneut.</p>
+  <div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading">Ihre Logindaten sind nicht korrekt!</h4>
+   <p class="mb-0">Ihre eingegebene Email-Adresse oder Passwort sind inkorrekt (oder beides).</p>
+   <p class="mb-0">Bitte versuchen Sie es erneut!</p>
+</div>
   </body>
 </html>
