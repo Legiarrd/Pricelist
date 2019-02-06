@@ -25,17 +25,17 @@
     </nav>
     <h1 class="display-4"><?php echo $lang->lang_login;?></h1>
     <hr>
-    <form action="php/login.php" method="post">
+    <form action="php/login.php?login=1" method="post">
       <div class="form-group">
-      <label><?php echo $lang->lang_username;?>:
-        <input class="form-control" type="text" name="username" minlength="3" maxlength="32" required disabled>
+      <label>Email:
+        <input class="form-control" type="email" name="email" minlength="3" placeholder="name@domain.tld" required>
       </label>
       <label><?php echo $lang->lang_password;?>:
-        <input class="form-control" type="password" name="password" minlength="8" maxlength="32" required disabled>
+        <input class="form-control" type="password" name="password" minlength="8" placeholder="password" required>
       </label>
     </div>
     <div class="form-group">
-      <button class="btn btn-primary" type="submit" name="submit" disabled><?php echo $lang->lang_login;?></button>
+      <button class="btn btn-primary" type="submit" name="submit"><?php echo $lang->lang_login;?></button>
     </form>
   </div>
   </body>

@@ -1,4 +1,9 @@
 <?php
+session_start();
+if(!isset($_SESSION['userid'])) {
+    include '../php/notlogin.php';
+    die('<h1 class"display-1">Bitte zuerst <a href="../login.php">einloggen</a></h1>');
+}
   $change = $_POST['changelang'];
   switch($change) {
     case 1:

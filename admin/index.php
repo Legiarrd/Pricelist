@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!isset($_SESSION['userid'])) {
+    include '../php/notlogin.php';
+    die('<br><p class="h4">Sie sind zurzeit nicht angemeldet.</p>');
+}
+?>
 <!doctype html>
 <html>
   <head>
@@ -17,6 +24,9 @@
           <button class="indexbutton btn btn-dark active" onclick="window.location.href='index.php'">Admin Panel</button>
           <button class="indexbutton btn btn-dark " onclick="window.location.href='edit.php'">Einträge bearbeiten</button>
           <button  class="indexbutton btn btn-dark" onclick="window.location.href='../index.php'">Zur Hauptseite</button>
+          <button  class="indexbutton btn btn-dark" onclick="window.location.href='../php/logout.php'">Logout</button>
         </div>
       </div>
     </nav>
+  </body>
+</html>

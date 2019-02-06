@@ -1,4 +1,5 @@
 <?php
+session_start();
  @require 'language.php';
  require 'php/sql.php';
  require 'php/itemtable.php';

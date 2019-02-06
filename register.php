@@ -28,30 +28,30 @@
     <form action="php/register.php" method="post">
     <div class="form-group">
       <label><?php echo $lang->lang_username;?>:
-        <input class="form-control" type="text" name="username" minlength="3" required disabled>
+        <input class="form-control" type="text" name="username" minlength="3" required>
       </label>
     </div>
       <div class="form-group">
       <label><?php echo $lang->lang_password;?>:
-        <input class="form-control" type="password" name="password" minlength="8" required disabled>
+        <input class="form-control" type="password" name="password" minlength="8" required>
       </label>
     </div>
     <div class="form-group">
       <label><?php echo $lang->lang_password_verify;?>:
-        <input class="form-control" type="password" name="password_verify" minlength="8" required disabled>
+        <input class="form-control" type="password" name="password_verify" minlength="8" required>
       </label>
     <div>
     <div class="form-group">
       <label><?php echo $lang->lang_email;?>:
-        <input class="form-control" type="email" name="email" required disabled>
+        <input class="form-control" type="email" name="email" required>
       </label>
     </div>
     <div class="form-group form-check">
-      <input type="checkbox" class="form-check-input" required disabled>
+      <input type="checkbox" class="form-check-input" required>
       <label class="form-check-label" >AGB akzeptieren</label>
     </div>
     <div class="form-group">
-      <button class="btn btn-primary" type="submit" name="submit" disabled><?php echo $lang->lang_register;?></button>
+      <button class="btn btn-primary" type="submit" name="submit"><?php echo $lang->lang_register;?></button>
     </div>
     </form>
   </body>
