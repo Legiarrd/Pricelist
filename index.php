@@ -11,6 +11,7 @@ session_start();
     <title><?php echo $lang->lang_pricelist;?></title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg ml navbar-dark bg-dark">
@@ -22,14 +23,15 @@ session_start();
           <button class="indexbutton btn btn-dark" onclick="window.location.href='login.php'"><?php echo $lang->lang_login; ?></button>
           <button  class="indexbutton btn btn-dark" onclick="window.location.href='register.php'"><?php echo $lang->lang_register;?></button>
           <button  class="indexbutton btn btn-dark" onclick="window.location.href='admin/index.php'">Admin</button>
-          <form class="ml-auto form-inline my-2 my-lg-0" method="get">
-          <input class="form-control mr-sm-1" type="text" name="search" placeholder="Suche" maxlength="255">
+          <div class="ml-auto">
+          <form class="form-inline my-2 my-lg-0" method="get">
+          <input class="form-control mr-sm-1" type="text" name="search" placeholder="Nach Artikel suchen" maxlength="255" size="70">
           <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Los</button>
+        </form>
+        </div>
       </div>
       </div>
     </nav>
-    <div id="header">
-  </div>
   <section class="table">
     <table>
       <tr>
@@ -44,16 +46,16 @@ session_start();
     $sbc = @$_GET['sortbycat'];
     $sbs = @$_GET['sortbysto'];
     if ($sbc == "yes") {
-      echo "<form action'#'><button class='indexbutton btn btn-link' type='submit'>Zurück</button></form>";
+      echo "<p class='mb-0'><a class='btn btn-link btn-lg' href='index.php'>Zurück</a></p>";
       sortbycat();
     }
     else {
       if ($sbs == "yes") {
-        echo "<form action'#'><button class='indexbutton btn btn-link' type='submit'>Zurück</button></form>";
+        echo "<p class='mb-0'><a class='btn btn-link btn-lg' href='index.php'>Zurück</a></p>>";
         sortbysto();
       } else {
         if ($search) {
-          echo "<form action'#'><button class='indexbutton btn btn-link' type='submit'>Zurück</button></form>";
+          echo "<p class='mb-0'><a class='btn btn-link btn-lg' href='index.php'>Zurück</a></p>";
           $select = "SELECT * FROM itemtable WHERE item LIKE '%$search%'";
           foreach ($pdo -> query($select) as $row) {
             echo "<tr><td>".$row['item']."</td>";
@@ -63,7 +65,7 @@ session_start();
           }
         } else {
           if ($sort == "yes") {
-          echo "<form action'#'><button class='indexbutton btn btn-link' type='submit'>Zurück</button></form>";
+          echo "<p class='mb-0'><a class='btn btn-link btn-lg' href='index.php'>Zurück</a></p>";
             order();
           } else {
       foreach ($pdo -> query($table) as $row) {

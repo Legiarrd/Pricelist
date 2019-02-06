@@ -12,6 +12,7 @@ require '../php/itemtable.php';
   <head>
     <meta charset="utf-8">
     <title><?php echo $lang->lang_register;?></title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../style/main.css">
   </head>
@@ -26,8 +27,12 @@ require '../php/itemtable.php';
           <button class="indexbutton btn btn-dark" onclick="window.location.href='index.php'">Admin Panel</button>
           <button class="indexbutton btn btn-dark active" onclick="window.location.href='edit.php'">Einträge bearbeiten</button>
           <button  class="indexbutton btn btn-dark" onclick="window.location.href='add.php'">Eintrag hinzufügen</button>
-          <button  class="indexbutton btn btn-dark" onclick="window.location.href='../index.php'">Zur Hauptseite</button>
-          <button  class="indexbutton btn btn-dark" onclick="window.location.href='../php/logout.php'">Logout</button>
+        </div>
+        <div class=" collapse navbar-collapse justify-content-end">
+          <ul class="navbar-nav">
+          <button  class="indexbutton btn btn-dark" onclick="window.location.href='../index.php'"><i class="fas fa-home"></i> Zur Startseite</button>
+          <button  class="indexbutton btn navbar-btn btn-dark" onclick="window.location.href='../php/logout.php'"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </ul>
         </div>
       </div>
     </nav>
@@ -50,16 +55,9 @@ require '../php/itemtable.php';
           echo "<td>".$row['category']."</td>";
           echo "<td>".$row['pricetag']."</td>";
           echo "<td>".$row['store']."</td>";
-          echo "<td><a class='btn btn-info' href='?change=".$row['id']."'>Bearbeiten</a></td>";
-          echo "<td><a class='btn btn-danger' href='?delete=".$row['id']."'>Löschen</a></td></tr>";
+          echo "<td><a class='btn btn-info' href='editentry.php?edit=".$row['id']."'>Bearbeiten</a></td>";
+          echo "<td><a class='btn btn-danger' href='../php/delete.php?delete=".$row['id']."'>Löschen</a></td></tr>";
               }
-          $del = @$_GET['delete'];
-          if ($del != 0) {
-          $delete = $pdo->prepare("DELETE FROM itemtable WHERE id = ?");
-          $delete->execute(array($del));
-          header ('Location: edit.php');
-          }
-
          ?>
       </section>
   </body>
