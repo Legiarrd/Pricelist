@@ -25,7 +25,7 @@ if(!isset($_SESSION['userid'])) {
           <a class="btn btn-dark" href='edit.php'>Einträge bearbeiten</a>
           <a class="btn btn-dark active" href='add.php'>Eintrag hinzufügen</a>
           <a class="btn btn-dark" href='users.php'>Users</a>
-          <a class="btn btn-dark" href='#' onclick="alert('Funktion wird im späteren Verlauf eingefügt')">Account bearbeiten</a>
+          <a class="btn btn-dark" href='account.php'>Account bearbeiten</a>
         </div>
         <div class=" collapse navbar-collapse justify-content-end">
           <ul class="navbar-nav">
