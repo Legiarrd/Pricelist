@@ -13,9 +13,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <div class="navbar-nav">
-        <button class="indexbutton btn btn-dark" onclick="window.location.href='../login.php'">Anmelden</button>
-        <button class="indexbutton btn btn-dark " onclick="window.location.href='../register.php'">Registrieren</button>
-        <button  class="indexbutton btn btn-dark" onclick="window.location.href='../index.php'">Zurück</button>
+        <a class="btn btn-dark" href='../login.php'>Anmelden</a>
+        <a class="btn btn-dark " href='../register.php'>Registrieren</a>
+        <a  class="btn btn-dark" href='../index.php'>Zurück</a>
       </div>
     </div>
   </nav>

@@ -21,13 +21,12 @@ echo '<!doctype html>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <div class="navbar-nav">';
-      echo  '<button  class="indexbutton btn btn-dark" onclick="window.location.';
-      echo "href='../index.php'\"";
-      echo ">Zurück</button>;
-      </div>
+      echo "</div>
     </div>
   </nav>";
-echo "<h1 class='display-4'>Logout erfolgreich</1>
+echo '<div class="alert alert-info" role="alert">
+<h1 class="alert-heading">Logout erfolgreich</h4><hr>
+<p>Sie werden in wenigen Sekunden weitergeleitet</p></div>
 </body>
-</html>";
+</html>';
 ?>

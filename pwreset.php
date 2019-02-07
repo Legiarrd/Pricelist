@@ -21,7 +21,7 @@ if ($_SESSION == true) {
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="navbar-nav">
-          <a class="btn btn-dark" href='index.php'>Zurück</a>
+          <a class="btn btn-dark" href='login.php'>Zurück</a>
         </div>
       </div>
     </nav>
@@ -67,17 +67,14 @@ if ($_SESSION == true) {
      $result = $statement->execute(array('passwordcode' => sha1($passwortcode), 'userid' => $user['id']));
 
      $empfaenger = $user['email'];
-     $betreff = "Passwort zurücksetzen"; //Ersetzt hier den Domain-Namen
-     $from = "From: NoReply <noreply@test.tld>"; //Ersetzt hier euren Name und E-Mail-Adresse
-     $url_passwortcode = 'http://localhost/php/reset.php?userid='.$user['id'].'&code='.$passwortcode; //Setzt hier eure richtige Domain ein
+     $betreff = "Passwort zurücksetzen";
+     $from = "From: NoReply <noreply@test.tld>";
+     $url_passwortcode = 'http://localhost/php/reset.php?userid='.$user['id'].'&code='.$passwortcode;
      $text = 'Hallo '.$user['username'].',
-    für deinen Account auf www.php-einfach.de wurde nach einem neuen Passwort gefragt. Um ein neues Passwort zu vergeben, rufe innerhalb der nächsten 24 Stunden die folgende Website auf:
+    Um ein neues Passwort zu vergeben, rufe innerhalb der nächsten 24 Stunden die folgende Website auf:
     '.$url_passwortcode.'
 
-    Sollte dir dein Passwort wieder eingefallen sein oder hast du dies nicht angefordert, so bitte ignoriere diese E-Mail.
-
-    Viele Grüße,
-    dein PHP-Einfach.de-Team';
+    Sollte dir dein Passwort wieder eingefallen sein oder hast du dies nicht angefordert, so bitte ignoriere diese E-Mail.';
 
      mail($empfaenger, $betreff, $text, $from);
 

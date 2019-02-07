@@ -38,6 +38,17 @@ require '../php/itemtable.php';
         </div>
       </div>
     </nav>
+    <div class="row justify-content-center align-items-center">
+    <form id="searchadmin" class="form-inline" method="get">
+    <input class="form-control" type="text" name="search" placeholder="Nach Artikel suchen" maxlength="255" size="70">
+    <button class="btn btn-info my-2 my-sm-0" type="submit">Los</button>
+    <?php
+    if(@$_GET['search']) {
+      echo "<a class='btn btn-outline-info' href='edit.php'>Zurück</a>";
+    }
+    ?>
+  </form>
+</div>
     <section class="table">
       <table>
         <tr>
@@ -51,6 +62,19 @@ require '../php/itemtable.php';
         </tr>
         <?php
         $table = "SELECT * FROM itemtable ORDER BY id";
+        $search = @$_GET['search'];
+        if ($search) {
+          $select = "SELECT * FROM itemtable WHERE item LIKE '%$search%'";
+          foreach ($pdo -> query($select) as $row) {
+            echo "<tr><td>".$row['id']."</td>";
+            echo "<td>".$row['item']."</td>";
+            echo "<td>".$row['category']."</td>";
+            echo "<td>".$row['pricetag']."</td>";
+            echo "<td>".$row['store']."</td>";
+            echo "<td><a class='btn btn-info' href='editentry.php?edit=".$row['id']."'>Bearbeiten</a></td>";
+            echo "<td><a class='btn btn-danger' href='../php/delete.php?delete=".$row['id']."'>Löschen</a></td></tr>";
+            }
+          } else {
         foreach ($pdo -> query($table) as $row) {
           echo "<tr><td>".$row['id']."</td>";
           echo "<td>".$row['item']."</td>";
@@ -60,6 +84,8 @@ require '../php/itemtable.php';
           echo "<td><a class='btn btn-info' href='editentry.php?edit=".$row['id']."'>Bearbeiten</a></td>";
           echo "<td><a class='btn btn-danger' href='../php/delete.php?delete=".$row['id']."'>Löschen</a></td></tr>";
               }
+            }
+
          ?>
       </section>
   </body>
