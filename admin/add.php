@@ -1,8 +1,18 @@
 <?php
 session_start();
+require '../php/sql.php';
+require '../php/users.php';
 if(!isset($_SESSION['userid'])) {
     include '../php/notlogin.php';
     die('<h1 class"display-1">Bitte zuerst <a href="../login.php">einloggen</a></h1>');
+}
+$permission = $pdo->prepare("SELECT permission FROM users WHERE id = ?");
+$result = $permission->execute(array($_SESSION['userid']));
+$verifyper = $permission->fetch();
+$verifyper = implode($verifyper);
+if(!$verifyper == "admin") {
+    include '../php/noperm.php';
+    die('<h1 class"display-1">Sie haben nicht die benötigten Berechtigungen</h1>');
 }
 ?>
 <!doctype html>

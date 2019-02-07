@@ -33,7 +33,7 @@ session_start();
           <div class="ml-auto">
           <form class="form-inline my-2 my-lg-0" method="get">
           <input class="form-control mr-sm-1" type="text" name="search" placeholder="Nach Artikel suchen" maxlength="255" size="70">
-          <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Los</button>
+          <button class="btn btn-outline-info my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
           <?php if (@$_SESSION['userid'] == true) {
             echo '<a class="btn btn-dark" href="php/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>';
           }

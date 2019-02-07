@@ -1,8 +1,18 @@
 <?php
 session_start();
+require '../php/sql.php';
+require '../php/users.php';
 if(!isset($_SESSION['userid'])) {
     include '../php/notlogin.php';
     die('<h1 class"display-1">Bitte zuerst <a href="../login.php">einloggen</a></h1>');
+}
+$permission = $pdo->prepare("SELECT permission FROM users WHERE id = ?");
+$result = $permission->execute(array($_SESSION['userid']));
+$verifyper = $permission->fetch();
+$verifyper = implode($verifyper);
+if(!$verifyper == "admin") {
+    include '../php/noperm.php';
+    die('<h1 class"display-1">Sie haben nicht die benötigten Berechtigungen</h1>');
 }
 require '../php/sql.php';
 require '../php/users.php';
@@ -58,12 +68,12 @@ require '../php/users.php';
           echo "<td>".$row['email']."</td>";
           echo "<td>".$row['permission']."</td>";
           echo "<td>".$row['created']."</td>";
-          echo "<td><a class='btn btn-info' href='#?edit=".$row['id']."'>Bearbeiten</a></td>";
+          echo "<td><a class='btn btn-info' href='usersettings.php?edit=".$row['id']."'>Bearbeiten</a></td>";
           echo "<td><a class='btn btn-danger' href='#?delete=".$row['id']."'>Löschen</a></td></tr>";
               }
          ?>
          <div class="alert alert-warning" role="alert">
-           Bearbeiten und Löschen kommt später
+           Löschen kommt später
          </div>
       </section>
   </body>

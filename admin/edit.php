@@ -1,8 +1,19 @@
 <?php
 session_start();
+require '../php/sql.php';
+require '../php/users.php';
+require '../php/itemtable.php';
+$permission = $pdo->prepare("SELECT permission FROM users WHERE id = ?");
+$result = $permission->execute(array($_SESSION['userid']));
+$verifyper = $permission->fetch();
+$verifyper = implode($verifyper);
 if(!isset($_SESSION['userid'])) {
     include '../php/notlogin.php';
     die('<h1 class"display-1">Bitte zuerst <a href="../login.php">einloggen</a></h1>');
+}
+if(!$verifyper == "admin") {
+    include '../php/noperm.php';
+    die('<h1 class"display-1">Sie haben nicht die benötigten Berechtigungen</h1>');
 }
 require '../php/sql.php';
 require '../php/itemtable.php';
@@ -41,7 +52,7 @@ require '../php/itemtable.php';
     <div class="row justify-content-center align-items-center">
     <form id="searchadmin" class="form-inline" method="get">
     <input class="form-control" type="text" name="search" placeholder="Nach Artikel suchen" maxlength="255" size="70">
-    <button class="btn btn-info my-2 my-sm-0" type="submit">Los</button>
+    <button class="btn btn-info my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
     <?php
     if(@$_GET['search']) {
       echo "<a class='btn btn-outline-info' href='edit.php'>Zurück</a>";
