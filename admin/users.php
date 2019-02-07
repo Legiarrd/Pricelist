@@ -4,7 +4,7 @@ require '../php/sql.php';
 require '../php/users.php';
 if(!isset($_SESSION['userid'])) {
     include '../php/notlogin.php';
-    die('<h1 class"display-1">Bitte zuerst <a href="../login.php">einloggen</a></h1>');
+    die('<div class="alert alert-danger" role="alert">Sie sind zurzeit nicht angemeldet!</div>>');
 }
 $permission = $pdo->prepare("SELECT permission FROM users WHERE id = ?");
 $result = $permission->execute(array($_SESSION['userid']));
@@ -12,7 +12,7 @@ $verifyper = $permission->fetch();
 $verifyper = implode($verifyper);
 if(!$verifyper == "admin") {
     include '../php/noperm.php';
-    die('<h1 class"display-1">Sie haben nicht die benötigten Berechtigungen</h1>');
+    die('<div class="alert alert-danger" role="alert">Sie besitzen nicht die benötigten Berechtigungen!</div>');
 }
 require '../php/sql.php';
 require '../php/users.php';
@@ -55,7 +55,7 @@ require '../php/users.php';
           <th>ID</th>
           <th>Username</th>
           <th>Email</th>
-          <th>Gruppe</th>
+          <th>Permissions</th>
           <th>Account erstellt</th>
           <th></th>
           <th></th>

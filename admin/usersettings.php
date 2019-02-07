@@ -4,7 +4,7 @@ require '../php/sql.php';
 require '../php/users.php';
 if(!isset($_SESSION['userid'])) {
     include '../php/notlogin.php';
-    die('<h1 class"display-1">Bitte zuerst <a href="../login.php">einloggen</a></h1>');
+    die('<div class="alert alert-danger" role="alert">Sie sind zurzeit nicht angemeldet!</div>');
 }
 $permission = $pdo->prepare("SELECT permission FROM users WHERE id = ?");
 $result = $permission->execute(array($_SESSION['userid']));
@@ -12,7 +12,7 @@ $verifyper = $permission->fetch();
 $verifyper = implode($verifyper);
 if(!$verifyper == "admin") {
     include '../php/noperm.php';
-    die('<h1 class"display-1">Sie haben nicht die benötigten Berechtigungen</h1>');
+    die('<div class="alert alert-danger" role="alert">Sie besitzen nicht die benötigten Berechtigungen!</div>');
 }
 function username() {
 require '../php/sql.php';
@@ -70,7 +70,7 @@ while($row = $user->fetch()) {echo ($row['id']);}
   <br>
   <form action ="../php/changeusersettings.php" method="post">
     <div class="form-group">
-    <input class="form-control" type="text" name="id" size="20" value="<?php id(); ?>" readonly hidden>
+    <input class="form-control" type="number" name="id" size="20" value="<?php id(); ?>" readonly hidden>
     <label>Username
     <input class="form-control" type="text" name="username" size="20" value="<?php username(); ?>">
   </label>
@@ -80,11 +80,14 @@ while($row = $user->fetch()) {echo ($row['id']);}
 </label>
   <div class="form-group">
   <label>Email-Adresse
-    <input class="form-control" type="text" name="email" value="<?php emailadr(); ?>">
+    <input class="form-control" type="email" name="email" value="<?php emailadr(); ?>">
   </label>
   <label>Rechte
-    <input class="form-control" type="text" name="permission" min="0" max="1" maxlength="1" value="<?php group(); ?>">
-  </label>
+    <select class="form-control" name="permission">
+      <option value="">Normal</option>
+      <option value="Admin">Admin</option>
+    </select>
+    </label>
 </div>
   <div class="form-group">
   <button class="btn btn-primary" type="submit">speichern</button>

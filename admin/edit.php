@@ -9,11 +9,11 @@ $verifyper = $permission->fetch();
 $verifyper = implode($verifyper);
 if(!isset($_SESSION['userid'])) {
     include '../php/notlogin.php';
-    die('<h1 class"display-1">Bitte zuerst <a href="../login.php">einloggen</a></h1>');
+    die('<div class="alert alert-danger" role="alert">Sie sind zurzeit nicht angemeldet!</div>');
 }
 if(!$verifyper == "admin") {
     include '../php/noperm.php';
-    die('<h1 class"display-1">Sie haben nicht die benötigten Berechtigungen</h1>');
+    die('<div class="alert alert-danger" role="alert">Sie besitzen nicht die benötigten Berechtigungen!</div>');
 }
 require '../php/sql.php';
 require '../php/itemtable.php';
@@ -68,6 +68,8 @@ require '../php/itemtable.php';
           <th>Kategorie</th>
           <th>Preis</th>
           <th>Markt</th>
+          <th>Letzte Aktualisierung</th>
+          <th>Hinzugefügt am</th>
           <th></th>
           <th></th>
         </tr>
@@ -82,6 +84,8 @@ require '../php/itemtable.php';
             echo "<td>".$row['category']."</td>";
             echo "<td>".$row['pricetag']."</td>";
             echo "<td>".$row['store']."</td>";
+            echo "<td>".$row['last_update']."</td>";
+            echo "<td>".$row['added']."</td>";
             echo "<td><a class='btn btn-info' href='editentry.php?edit=".$row['id']."'>Bearbeiten</a></td>";
             echo "<td><a class='btn btn-danger' href='../php/delete.php?delete=".$row['id']."'>Löschen</a></td></tr>";
             }
@@ -92,12 +96,15 @@ require '../php/itemtable.php';
           echo "<td>".$row['category']."</td>";
           echo "<td>".$row['pricetag']."</td>";
           echo "<td>".$row['store']."</td>";
+          echo "<td>".$row['last_update']."</td>";
+          echo "<td>".$row['added']."</td>";
           echo "<td><a class='btn btn-info' href='editentry.php?edit=".$row['id']."'>Bearbeiten</a></td>";
           echo "<td><a class='btn btn-danger' href='../php/delete.php?delete=".$row['id']."'>Löschen</a></td></tr>";
               }
             }
 
          ?>
+       </table>
       </section>
   </body>
 </html>

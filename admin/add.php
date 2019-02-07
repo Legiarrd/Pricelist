@@ -4,15 +4,7 @@ require '../php/sql.php';
 require '../php/users.php';
 if(!isset($_SESSION['userid'])) {
     include '../php/notlogin.php';
-    die('<h1 class"display-1">Bitte zuerst <a href="../login.php">einloggen</a></h1>');
-}
-$permission = $pdo->prepare("SELECT permission FROM users WHERE id = ?");
-$result = $permission->execute(array($_SESSION['userid']));
-$verifyper = $permission->fetch();
-$verifyper = implode($verifyper);
-if(!$verifyper == "admin") {
-    include '../php/noperm.php';
-    die('<h1 class"display-1">Sie haben nicht die benötigten Berechtigungen</h1>');
+    die('<div class="alert alert-danger" role="alert">Sie sind zurzeit nicht angemeldet!</div>');
 }
 ?>
 <!doctype html>
@@ -57,7 +49,11 @@ if(!$verifyper == "admin") {
     <label>Kategorie
       <select class="form-control" name="category" class="adds" required>
         <option value="Lebensmittel">Lebensmittel</option>
-        <option value="Getränke">Getränke</option>
+        <option value="alkoholfreie Getränke">alkoholfreie Getränke</option>
+        <option value="alkoholische Getränke">alkoholische Getränke</option>
+        <option value="koffeinhaltige Getränke">koffeinhaltige Getränke</option>
+        <option value="Kosmetik">Kosmetik</option>
+        <option value="Sonstiges">Sonstiges</option>
       </select>
     </label>
 
@@ -66,8 +62,8 @@ if(!$verifyper == "admin") {
     </label>
     <label>Markt
       <select name="store" class="form-control" required>
-        <option value="Edeka">Edeka</option>
-        <option value="Fleischer">Fleischer</option>
+        <option value="EDEKA">EDEKA</option>
+        <option value="EDEKA Fleischer">EDEKA Fleischer</option>
         <option value="Bäcker">Bäcker</option>
       </select>
     </label>

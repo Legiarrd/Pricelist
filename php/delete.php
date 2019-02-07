@@ -2,7 +2,7 @@
 session_start();
 if(!isset($_SESSION['userid'])) {
     include 'notlogin.php';
-    die('<h1 class"display-1">Bitte zuerst <a href="../login.php">einloggen</a></h1>');
+    die('<div class="alert alert-danger" role="alert">Sie sind zurzeit nicht angemeldet!</div>');
 }
 require 'sql.php';
 require 'itemtable.php';

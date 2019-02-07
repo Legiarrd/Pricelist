@@ -2,7 +2,7 @@
 session_start();
 if(!isset($_SESSION['userid'])) {
     include '../php/notlogin.php';
-    die('<br><p class="h4">Sie sind zurzeit nicht angemeldet.</p>');
+    die('<div class="alert alert-danger" role="alert">Sie sind zurzeit nicht angemeldet!</div>');
 }
 ?>
 <!doctype html>

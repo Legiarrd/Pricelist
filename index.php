@@ -50,6 +50,7 @@ session_start();
         <th><a href="?sortbycat=yes"><?php echo $lang->lang_table_category ?></a></th>
         <th><?php echo $lang->lang_table_pricetag ?></th>
         <th><a href="?sortbysto=yes"><?php echo $lang->lang_table_store ?></a></th>
+        <th>Letzte Aktualisierung</th>
       </tr>
     <?php
     $sort = @$_GET['sort'];
@@ -69,7 +70,8 @@ session_start();
             echo "<tr><td>".$row['item']."</td>";
             echo "<td>".$row['category']."</td>";
             echo "<td>".$row['pricetag']."</td>";
-            echo "<td>".$row['store']."</td></tr>";
+            echo "<td>".$row['store']."</td>";
+            echo "<td>".$row['last_update']."</td></tr>";
           }
         } else {
           if ($sort == "yes") {
@@ -79,7 +81,8 @@ session_start();
         echo "<tr><td>".$row['item']."</td>";
         echo "<td>".$row['category']."</td>";
         echo "<td>".$row['pricetag']."</td>";
-        echo "<td>".$row['store']."</td></tr>";
+        echo "<td>".$row['store']."</td>";
+        echo "<td>".$row['last_update']."</td></tr>";
             }
       }
     }
@@ -92,7 +95,8 @@ session_start();
       echo "<tr><td>".$row['item']."</td>";
       echo "<td>".$row['category']."</td>";
       echo "<td>".$row['pricetag']."</td>";
-      echo "<td>".$row['store']."</td></tr>";
+      echo "<td>".$row['store']."</td>";
+          echo "<td>".$row['last_update']."</td></tr>";
     }
   }
 
@@ -103,7 +107,8 @@ session_start();
         echo "<tr><td>".$row['item']."</td>";
         echo "<td>".$row['category']."</td>";
         echo "<td>".$row['pricetag']."</td>";
-        echo "<td>".$row['store']."</td></tr>";
+        echo "<td>".$row['store']."</td>";
+        echo "<td>".$row['last_update']."</td></tr>";
       }
     }
     function sortbysto() {
@@ -113,7 +118,8 @@ session_start();
         echo "<tr><td>".$row['item']."</td>";
         echo "<td>".$row['category']."</td>";
         echo "<td>".$row['pricetag']."</td>";
-        echo "<td>".$row['store']."</td></tr>";
+        echo "<td>".$row['store']."</td>";
+        echo "<td>".$row['last_update']."</td></tr>";
       }
     }
      ?>
