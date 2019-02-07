@@ -69,7 +69,7 @@ session_start();
           foreach ($pdo -> query($select) as $row) {
             echo "<tr><td>".$row['item']."</td>";
             echo "<td>".$row['category']."</td>";
-            echo "<td>".$row['pricetag']."</td>";
+            echo "<td>".$row['pricetag']."€</td>";
             echo "<td>".$row['store']."</td>";
             echo "<td>".$row['last_update']."</td></tr>";
           }
@@ -80,7 +80,7 @@ session_start();
       foreach ($pdo -> query($table) as $row) {
         echo "<tr><td>".$row['item']."</td>";
         echo "<td>".$row['category']."</td>";
-        echo "<td>".$row['pricetag']."</td>";
+        echo "<td>".$row['pricetag']."€</td>";
         echo "<td>".$row['store']."</td>";
         echo "<td>".$row['last_update']."</td></tr>";
             }
@@ -94,7 +94,7 @@ session_start();
     foreach ($pdo -> query($sortbycat) as $row) {
       echo "<tr><td>".$row['item']."</td>";
       echo "<td>".$row['category']."</td>";
-      echo "<td>".$row['pricetag']."</td>";
+      echo "<td>".$row['pricetag']."€</td>";
       echo "<td>".$row['store']."</td>";
           echo "<td>".$row['last_update']."</td></tr>";
     }
@@ -106,7 +106,7 @@ session_start();
       foreach ($pdo -> query($sortbycat) as $row) {
         echo "<tr><td>".$row['item']."</td>";
         echo "<td>".$row['category']."</td>";
-        echo "<td>".$row['pricetag']."</td>";
+        echo "<td>".$row['pricetag']."€</td>";
         echo "<td>".$row['store']."</td>";
         echo "<td>".$row['last_update']."</td></tr>";
       }
@@ -117,7 +117,7 @@ session_start();
       foreach ($pdo -> query($sortbysto) as $row) {
         echo "<tr><td>".$row['item']."</td>";
         echo "<td>".$row['category']."</td>";
-        echo "<td>".$row['pricetag']."</td>";
+        echo "<td>".$row['pricetag']."€</td>";
         echo "<td>".$row['store']."</td>";
         echo "<td>".$row['last_update']."</td></tr>";
       }

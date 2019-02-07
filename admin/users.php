@@ -4,7 +4,7 @@ require '../php/sql.php';
 require '../php/users.php';
 if(!isset($_SESSION['userid'])) {
     include '../php/notlogin.php';
-    die('<div class="alert alert-danger" role="alert">Sie sind zurzeit nicht angemeldet!</div>>');
+    die('<div class="alert alert-danger" role="alert">Sie sind zurzeit nicht angemeldet!</div>');
 }
 $permission = $pdo->prepare("SELECT permission FROM users WHERE id = ?");
 $result = $permission->execute(array($_SESSION['userid']));
