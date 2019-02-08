@@ -26,7 +26,9 @@ if ($_SESSION == true) {
     <h1 class="display-4">Passwort zurücksetzen</h1>
     <hr>
 <?php
-require 'php/users.php';
+$config = parse_ini_file("ini/db.ini");
+$pdo =  new PDO(sprintf("mysql:host=%s;dbname=%s", $config['host'], $config['dbname']), $config['dbusername'], $config['dbpw']);
+$users = "SELECT * FROM users";
 
 if(!isset($_GET['userid']) || !isset($_GET['code'])) {
  die("Leider wurde beim Aufruf dieser Website kein Code zum Zurücksetzen deines Passworts übermittelt");

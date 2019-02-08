@@ -27,8 +27,9 @@ if ($_SESSION == true) {
     <h1 class="display-4">Passwort zurücksetzen</h1>
     <hr>
     <?php
-    require 'php/sql.php';
-    require 'php/users.php';
+    $config = parse_ini_file("ini/db.ini");
+    $pdo =  new PDO(sprintf("mysql:host=%s;dbname=%s", $config['host'], $config['dbname']), $config['dbusername'], $config['dbpw']);
+    $users = "SELECT * FROM users";
     function random_string() {
      if(function_exists('random_bytes')) {
      $bytes = random_bytes(16);

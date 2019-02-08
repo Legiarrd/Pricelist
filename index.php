@@ -3,7 +3,6 @@ if(file_exists('ini/db.ini') == FALSE) {
   header ('Location: SETUP/index.php');
 }
 session_start();
- require 'php/sql.php';
  require 'php/itemtable.php';
  ?>
 <!doctype html>
@@ -49,7 +48,7 @@ session_start();
     <table>
       <tr>
         <th><a href="?sort=yes">Artikel</a></th>
-        <th><a href="?sortbycat=yes">Kategory</a></th>
+        <th><a href="?sortbycat=yes">Kategorie</a></th>
         <th>Preis</th>
         <th><a href="?sortbysto=yes">Markt</a></th>
         <th>Letzte Aktualisierung</th>
@@ -91,7 +90,7 @@ session_start();
   }
 }
   function order() {
-    include 'php/sql.php';
+    include 'php/itemtable.php';
     $sortbycat = "SELECT * FROM itemtable ORDER BY item";
     foreach ($pdo -> query($sortbycat) as $row) {
       echo "<tr><td>".$row['item']."</td>";
@@ -103,7 +102,7 @@ session_start();
   }
 
     function sortbycat() {
-      include 'php/sql.php';
+      include 'php/itemtable.php';
       $sortbycat = "SELECT * FROM itemtable ORDER BY category";
       foreach ($pdo -> query($sortbycat) as $row) {
         echo "<tr><td>".$row['item']."</td>";
@@ -114,7 +113,7 @@ session_start();
       }
     }
     function sortbysto() {
-      include 'php/sql.php';
+      include 'php/itemtable.php';
       $sortbysto = "SELECT * FROM itemtable ORDER BY store";
       foreach ($pdo -> query($sortbysto) as $row) {
         echo "<tr><td>".$row['item']."</td>";
