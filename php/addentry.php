@@ -5,7 +5,6 @@ if(!isset($_SESSION['userid'])) {
     die('<div class="alert alert-danger" role="alert">Sie sind zurzeit nicht angemeldet!</div>');
 }
 require 'sql.php';
-#require 'language.php';
 require 'itemtable.php';
 
 $item = $_POST['item'];

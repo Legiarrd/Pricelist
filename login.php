@@ -1,6 +1,5 @@
 <?php
 session_start();
-@require 'language.php';
 if ($_SESSION == true) {
   header('Location: index.php');
 }
@@ -9,7 +8,7 @@ if ($_SESSION == true) {
 <html>
   <head>
     <meta charset="utf-8">
-    <title><?php echo $lang->lang_register;?></title>
+    <title>Login | Preistabelle</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style/main.css">
   </head>
@@ -27,19 +26,19 @@ if ($_SESSION == true) {
         </div>
       </div>
     </nav>
-    <h1 class="display-4"><?php echo $lang->lang_login;?></h1>
+    <h1 class="display-4">Anmelden</h1>
     <hr>
     <form action="php/login.php?login=1" method="post">
       <div class="form-group">
       <label>Email:
         <input class="form-control" type="email" name="email" minlength="3" placeholder="name@domain.tld" required>
       </label>
-      <label><?php echo $lang->lang_password;?>:
+      <label>Passwort:
         <input class="form-control" type="password" name="password" minlength="6" placeholder="password" required>
       </label>
     </div>
     <div class="form-group">
-      <button class="btn btn-primary" type="submit" name="submit"><?php echo $lang->lang_login;?></button>
+      <button class="btn btn-primary" type="submit" name="submit">Anmelden</button>
       <p><a class="btn btn-link" href="pwreset.php">Passwort vergessen?</a></p>
     </div>
 

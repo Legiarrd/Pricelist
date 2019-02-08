@@ -3,7 +3,6 @@ session_start();
 if ($_SESSION == true) {
   header('Location: index.php');
 }
-  @require 'language.php';
   require 'php/sql.php';
   require 'php/users.php';
 ?>
@@ -11,7 +10,7 @@ if ($_SESSION == true) {
 <html>
   <head>
     <meta charset="utf-8">
-    <title><?php echo $lang->lang_register;?></title>
+    <title>Registrieren | Preistabelle</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style/main.css">
   </head>
@@ -30,29 +29,29 @@ if ($_SESSION == true) {
       </div>
     </nav>
     <?php
-    $showFormular = true; //Variable ob das Registrierungsformular anezeigt werden soll
+    $showFormular = true;
     if($showFormular) {
     ?>
-      <h1 class="display-4"><?php echo $lang->lang_register;?></h1>
+      <h1 class="display-4">Registrieren</h1>
       <hr>
       <form action="?register=1" method="post">
       <div class="form-group">
-        <label><?php echo $lang->lang_username;?>:
+        <label>Username:
           <input class="form-control" type="text" name="username" minlength="3" required>
         </label>
       </div>
         <div class="form-group">
-        <label><?php echo $lang->lang_password;?>:
+        <label>Passwort:
           <input class="form-control" type="password" name="password" minlength="8" required>
         </label>
       </div>
       <div class="form-group">
-        <label><?php echo $lang->lang_password_verify;?>:
+        <label>Passwort bestätigen:
           <input class="form-control" type="password" name="password_verify" minlength="8" required>
         </label>
       <div>
       <div class="form-group">
-        <label><?php echo $lang->lang_email;?>:
+        <label>Email Adresse:
           <input class="form-control" type="email" name="email" required>
         </label>
       </div>
@@ -61,7 +60,7 @@ if ($_SESSION == true) {
         <label class="form-check-label" >AGB akzeptieren</label>
       </div>
       <div class="form-group">
-        <button class="btn btn-primary" type="submit" name="submit"><?php echo $lang->lang_register;?></button>
+        <button class="btn btn-primary" type="submit" name="submit">Registrieren</button>
       </div>
       </form>
     </form>

@@ -1,6 +1,5 @@
 <?php
 session_start();
- @require 'language.php';
  require 'php/sql.php';
  require 'php/itemtable.php';
  ?>
@@ -8,7 +7,7 @@ session_start();
 <html>
   <head>
     <meta charset="utf-8">
-    <title><?php echo $lang->lang_pricelist;?></title>
+    <title>Preistabelle</title>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style/main.css">
@@ -46,10 +45,10 @@ session_start();
   <section class="table">
     <table>
       <tr>
-        <th><a href="?sort=yes"><?php echo $lang->lang_table_item ?></a></th>
-        <th><a href="?sortbycat=yes"><?php echo $lang->lang_table_category ?></a></th>
-        <th><?php echo $lang->lang_table_pricetag ?></th>
-        <th><a href="?sortbysto=yes"><?php echo $lang->lang_table_store ?></a></th>
+        <th><a href="?sort=yes">Artikel</a></th>
+        <th><a href="?sortbycat=yes">Kategory</a></th>
+        <th>Preis</th>
+        <th><a href="?sortbysto=yes">Markt</a></th>
         <th>Letzte Aktualisierung</th>
       </tr>
     <?php
