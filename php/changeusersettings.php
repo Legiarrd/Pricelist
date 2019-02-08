@@ -1,6 +1,5 @@
 <?php
 session_start();
-require '../php/sql.php';
 require '../php/users.php';
 if(!isset($_SESSION['userid'])) {
     include '../php/notlogin.php';

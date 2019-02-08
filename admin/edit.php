@@ -1,8 +1,6 @@
 <?php
 session_start();
-require '../php/sql.php';
 require '../php/users.php';
-require '../php/itemtable.php';
 $permission = $pdo->prepare("SELECT permission FROM users WHERE id = ?");
 $result = $permission->execute(array(@$_SESSION['userid']));
 $verifyper = $permission->fetch();
@@ -15,8 +13,7 @@ if(!$verifyper == "admin") {
     include '../php/noperm.php';
     die('<div class="alert alert-danger" role="alert">Sie besitzen nicht die benötigten Berechtigungen!</div>');
 }
-require '../php/sql.php';
-require '../php/itemtable.php';
+require '../php/adminitemtable.php';
 ?>
 <!doctype html>
 <html>

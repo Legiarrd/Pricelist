@@ -1,4 +1,7 @@
 <?php
+if(file_exists('ini/db.ini') == FALSE) {
+  header ('Location: SETUP/index.php');
+}
 session_start();
  require 'php/sql.php';
  require 'php/itemtable.php';

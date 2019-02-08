@@ -3,8 +3,9 @@ session_start();
 if ($_SESSION == true) {
   header('Location: index.php');
 }
-  require 'php/sql.php';
-  require 'php/users.php';
+  $config = parse_ini_file("ini/db.ini");
+  $pdo =  new PDO(sprintf("mysql:host=%s;dbname=%s", $config['host'], $config['dbname']), $config['dbusername'], $config['dbpw']);
+  $users = "SELECT * FROM users";
 ?>
 <!doctype html>
 <html>

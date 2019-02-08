@@ -1,7 +1,7 @@
 <?php
 function item() {
   include '../php/sql.php';
-  include '../php/itemtable.php';
+  include '../php/adminitemtable.php';
   $entryid = $_GET['edit'];
   $idsearch = $pdo-> prepare("SELECT * FROM itemtable WHERE id = ?");
   $idsearch -> execute(array($entryid));
@@ -9,7 +9,7 @@ function item() {
 }
 function store() {
   include '../php/sql.php';
-  include '../php/itemtable.php';
+  include '../php/adminitemtable.php';
   $entryid = $_GET['edit'];
   $idsearch = $pdo-> prepare("SELECT * FROM itemtable WHERE id = ?");
   $idsearch -> execute(array($entryid));
@@ -17,7 +17,7 @@ function store() {
 }
 function pricetag() {
   include '../php/sql.php';
-  include '../php/itemtable.php';
+  include '../php/adminitemtable.php';
   $entryid = $_GET['edit'];
   $idsearch = $pdo-> prepare("SELECT * FROM itemtable WHERE id = ?");
   $idsearch -> execute(array($entryid));
@@ -25,7 +25,7 @@ function pricetag() {
 }
 function category() {
   include '../php/sql.php';
-  include '../php/itemtable.php';
+  include '../php/adminitemtable.php';
   $entryid = $_GET['edit'];
   $idsearch = $pdo-> prepare("SELECT * FROM itemtable WHERE id = ?");
   $idsearch -> execute(array($entryid));
@@ -33,7 +33,7 @@ function category() {
 }
 function id() {
   include '../php/sql.php';
-  include '../php/itemtable.php';
+  include '../php/adminitemtable.php';
   $entryid = $_GET['edit'];
   $idsearch = $pdo-> prepare("SELECT * FROM itemtable WHERE id = ?");
   $idsearch -> execute(array($entryid));

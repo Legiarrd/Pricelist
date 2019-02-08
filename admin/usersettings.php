@@ -1,6 +1,5 @@
 <?php
 session_start();
-require '../php/sql.php';
 require '../php/users.php';
 if(!isset($_SESSION['userid'])) {
     include '../php/notlogin.php';
@@ -15,7 +14,6 @@ if(!$verifyper == "admin") {
     die('<div class="alert alert-danger" role="alert">Sie besitzen nicht die benötigten Berechtigungen!</div>');
 }
 function username() {
-require '../php/sql.php';
 require '../php/users.php';
 $id = $_GET['edit'];
 $user = $pdo->prepare("SELECT * FROM users WHERE id = ?");
@@ -23,24 +21,21 @@ $exec = $user->execute(array($id));
 while($row = $user->fetch()) {echo ($row['username']);}
 }
 function emailadr() {
-  require '../php/sql.php';
-  require '../php/users.php';
+require '../php/users.php';
 $id = $_GET['edit'];
 $user = $pdo->prepare("SELECT * FROM users WHERE id = ?");
 $exec = $user->execute(array($id));
 while($row = $user->fetch()) {echo ($row['email']);}
 }
 function group() {
-  require '../php/sql.php';
-  require '../php/users.php';
+require '../php/users.php';
 $id = $_GET['edit'];
 $user = $pdo->prepare("SELECT * FROM users WHERE id = ?");
 $exec = $user->execute(array($id));
 while($row = $user->fetch()) {echo ($row['permission']);}
 }
 function id() {
-  require '../php/sql.php';
-  require '../php/users.php';
+require '../php/users.php';
 $id = $_GET['edit'];
 $user = $pdo->prepare("SELECT * FROM users WHERE id = ?");
 $exec = $user->execute(array($id));

@@ -4,8 +4,7 @@ if(!isset($_SESSION['userid'])) {
     include 'notlogin.php';
     die('<div class="alert alert-danger" role="alert">Sie sind zurzeit nicht angemeldet!</div>');
 }
-require 'sql.php';
-require 'itemtable.php';
+require 'adminitemtable.php';
 
 $item = $_POST['item'];
 $category = $_POST['category'];

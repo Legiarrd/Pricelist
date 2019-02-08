@@ -26,7 +26,6 @@ if ($_SESSION == true) {
     <h1 class="display-4">Passwort zurücksetzen</h1>
     <hr>
 <?php
-require 'php/sql.php';
 require 'php/users.php';
 
 if(!isset($_GET['userid']) || !isset($_GET['code'])) {
