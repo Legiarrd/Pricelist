@@ -13,7 +13,6 @@ if(!$verifyper == "admin") {
     include '../php/noperm.php';
     die('<div class="alert alert-danger" role="alert">Sie besitzen nicht die benötigten Berechtigungen!</div>');
 }
-require '../php/sql.php';
 require '../php/users.php';
 ?>
 <!doctype html>
@@ -68,12 +67,9 @@ require '../php/users.php';
           echo "<td>".$row['permission']."</td>";
           echo "<td>".$row['created']."</td>";
           echo "<td><a class='btn btn-info' href='usersettings.php?edit=".$row['id']."'>Bearbeiten</a></td>";
-          echo "<td><a class='btn btn-danger' href='#?delete=".$row['id']."'>Löschen</a></td></tr>";
+          echo "<td><a class='btn btn-danger' href='../php/deleteuser.php?delete=".$row['id']."'>Löschen</a></td></tr>";
               }
          ?>
-         <div class="alert alert-warning" role="alert">
-           Löschen kommt später
-         </div>
       </section>
   </body>
 </html>

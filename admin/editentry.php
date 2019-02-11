@@ -1,6 +1,5 @@
 <?php
 function item() {
-  include '../php/sql.php';
   include '../php/adminitemtable.php';
   $entryid = $_GET['edit'];
   $idsearch = $pdo-> prepare("SELECT * FROM itemtable WHERE id = ?");
@@ -8,7 +7,6 @@ function item() {
   while($row = $idsearch->fetch()) {echo $row['item'];}
 }
 function store() {
-  include '../php/sql.php';
   include '../php/adminitemtable.php';
   $entryid = $_GET['edit'];
   $idsearch = $pdo-> prepare("SELECT * FROM itemtable WHERE id = ?");
@@ -16,7 +14,6 @@ function store() {
   while($row = $idsearch->fetch()) {echo $row['store'];}
 }
 function pricetag() {
-  include '../php/sql.php';
   include '../php/adminitemtable.php';
   $entryid = $_GET['edit'];
   $idsearch = $pdo-> prepare("SELECT * FROM itemtable WHERE id = ?");
@@ -24,7 +21,6 @@ function pricetag() {
   while($row = $idsearch->fetch()) {echo floatval($row['pricetag']);}
 }
 function category() {
-  include '../php/sql.php';
   include '../php/adminitemtable.php';
   $entryid = $_GET['edit'];
   $idsearch = $pdo-> prepare("SELECT * FROM itemtable WHERE id = ?");
@@ -32,7 +28,6 @@ function category() {
   while($row = $idsearch->fetch()) {echo $row['category'];}
 }
 function id() {
-  include '../php/sql.php';
   include '../php/adminitemtable.php';
   $entryid = $_GET['edit'];
   $idsearch = $pdo-> prepare("SELECT * FROM itemtable WHERE id = ?");
