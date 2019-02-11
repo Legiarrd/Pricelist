@@ -41,7 +41,6 @@ if ($_SESSION == true) {
      $bytes = mcrypt_create_iv(16, MCRYPT_DEV_URANDOM);
      $str = bin2hex($bytes);
      } else {
-     //Bitte euer_geheim_string durch einen zufälligen String mit >12 Zeichen austauschen
      $str = md5(uniqid('Fh#!iSQ^6!9Z', true));
      }
      return $str;
@@ -61,7 +60,6 @@ if ($_SESSION == true) {
      if($user === false) {
      $error = "<b>Kein Benutzer gefunden</b>";
      } else {
-     //Überprüfe, ob der User schon einen Passwortcode hat oder ob dieser abgelaufen ist
      $passwortcode = random_string();
      $statement = $pdo->prepare("UPDATE users SET passwordcode = :passwordcode, passwordcode_time = NOW() WHERE id = :userid");
      $result = $statement->execute(array('passwordcode' => sha1($passwortcode), 'userid' => $user['id']));
@@ -104,7 +102,7 @@ if ($_SESSION == true) {
     </form>
 
     <?php
-    endif; //Endif von if($showForm)
+    endif;
     ?>
   </body>
 </html>
