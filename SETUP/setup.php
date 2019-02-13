@@ -38,7 +38,6 @@ $dbpw = @$_POST['dbpw'];
   fwrite($file, 'dbpw = ' . $dbpw . "\r\n");
   fwrite($file, 'dbname = ' . $dbname . "\r\n");
   fclose($file);
-  unlink('indicator.ini');
   header ('Location: ../index.php');
   }
 }

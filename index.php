@@ -4,6 +4,7 @@ if(file_exists('ini/db.ini') == FALSE) {
 }
 session_start();
  require 'php/itemtable.php';
+ $table = "SELECT * FROM itemtable ORDER BY id DESC LIMIT 10";
  ?>
 <!doctype html>
 <html>
@@ -84,7 +85,7 @@ session_start();
         echo "<td>".$row['pricetag']."€</td>";
         echo "<td>".$row['store']."</td>";
         echo "<td>".$row['last_update']."</td></tr>";
-            }
+      }
       }
     }
   }
@@ -123,10 +124,10 @@ session_start();
         echo "<td>".$row['last_update']."</td></tr>";
       }
     }
-     ?>
+    ?>
+     </a>
    </table>
  </section>
  <hr>
- <!--<p align="center">made by <a href="https://github.com/legiarrd">Legiarrd</a></p> -->
   </body>
 </html>
