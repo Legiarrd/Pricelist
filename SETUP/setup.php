@@ -38,6 +38,34 @@ $dbpw = @$_POST['dbpw'];
   fwrite($file, 'dbpw = ' . $dbpw . "\r\n");
   fwrite($file, 'dbname = ' . $dbname . "\r\n");
   fclose($file);
+  $config = parse_ini_file("../ini/db.ini");
+  $db =  new PDO(sprintf("mysql:host=%s;dbname=%s", $config['host'], $config['dbname']), $config['dbusername'], $config['dbpw']);
+  sleep(3);
+  $db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+  $dbcreateitem = "CREATE TABLE IF NOT EXISTS `itemtable` (
+            `id` int(11) NOT NULL AUTO_INCREMENT,
+            `item` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+            `category` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+            `pricetag` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+            `store` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+            `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            `added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            PRIMARY KEY (`id`)
+          ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;";
+  $db->exec($dbcreateitem);
+  $dbcusers = "CREATE TABLE IF NOT EXISTS `users` (
+          `id` int(11) NOT NULL AUTO_INCREMENT,
+          `username` varchar(255) NOT NULL,
+          `email` varchar(255) NOT NULL,
+          `password` varchar(255) NOT NULL,
+          `passwordcode` varchar(255) NOT NULL,
+          `passwordcode_time` varchar(255) NOT NULL,
+          `permission` varchar(255) DEFAULT NULL,
+          `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+          `added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+          PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;";
+  $db->exec($dbcusers);
   header ('Location: ../index.php');
   }
 }
