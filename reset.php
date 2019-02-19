@@ -37,12 +37,10 @@ if(!isset($_GET['userid']) || !isset($_GET['code'])) {
 $userid = $_GET['userid'];
 $code = $_GET['code'];
 
-//Abfrage des Nutzers
 $statement = $pdo->prepare("SELECT * FROM users WHERE id = :userid");
 $result = $statement->execute(array('userid' => $userid));
 $user = $statement->fetch();
 
-//Überprüfe dass ein Nutzer gefunden wurde und dieser auch ein passwordcode hat
 if($user === null || $user['passwordcode'] === null) {
  die("Es wurde kein passender Benutzer gefunden");
 }
@@ -52,12 +50,9 @@ if($user['passwordcode_time'] === null || strtotime($user['passwordcode_time']) 
 }
 
 
-//Überprüfe den passwordcode
 if(sha1($code) != $user['passwordcode']) {
  die("Der übergebene Code war ungültig. Stell sicher, dass du den genauen Link in der URL aufgerufen hast.");
 }
-
-//Der Code war korrekt, der Nutzer darf ein neues Passwort eingeben
 
 if(isset($_GET['send'])) {
  $password = @$_POST['password'];
@@ -65,7 +60,7 @@ if(isset($_GET['send'])) {
 
  if($password != $password_verify) {
  echo "Bitte identische Passwörter eingeben";
- } else { //Speichere neues Passwort und lösche den Code
+ } else {
  $passwordhash = password_hash($password, PASSWORD_DEFAULT);
  $statement = $pdo->prepare("UPDATE users SET password = :passwordhash, passwordcode = NULL, passwordcode_time = NULL WHERE id = :userid");
  $result = $statement->execute(array('passwordhash' => $passwordhash, 'userid'=> $userid ));
