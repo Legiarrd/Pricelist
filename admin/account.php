@@ -103,10 +103,10 @@ while($row = $user->fetch()) {echo ($row['email']);}
     header('Location: account.php');
   }
   if (isset($_GET['del'])) {
-    echo "<p></p>
+    echo "
     <form action='?delverify=yes' method='post'>
     <div class='form-group'>
-    <div class='alert alert-danger' role='alert'>Sind sie Sicher, dass Sie ihr Account löschen wollen?
+    <div class='alert alert-danger' role='alert'>Sind Sie sicher, dass Sie Ihr Account löschen wollen?
     <br>Ihr Account wird damit unwiderruflich gelöscht!</div>
     <button class='btn btn-danger' type='submit'>Löschen!</button></div></div>
     ";
