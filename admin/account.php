@@ -4,6 +4,9 @@ if(!isset($_SESSION['userid'])) {
     include '../php/notlogin.php';
     die('<div class="alert alert-danger" role="alert">Sie sind zurzeit nicht angemeldet!</div>');
 }
+$config = parse_ini_file("../ini/db.ini");
+$pdo =  new PDO(sprintf("mysql:host=%s;dbname=%s", $config['host'], $config['dbname']), $config['dbusername'], $config['dbpw']);
+$users = "SELECT * FROM users";
 ?>
 <!doctype html>
 <html>
@@ -36,5 +39,82 @@ if(!isset($_SESSION['userid'])) {
         </div>
       </div>
     </nav>
+    <h1 class="display-4">Account bearbeiten</h1>
+    <hr>
+    <form action ="?submit=1" method="post">
+      <div class="form-group">
+      <label>Username
+      <input class="form-control" type="text" name="username" size="20" value="<?php username(); ?>">
+    </label>
+    <label>Passwort
+    <input class="form-control" type="password" name="password" size="30" placeholder="neues Passwort">
+  </label>
+    <label>Email-Adresse
+      <input class="form-control" type="email" name="email" value="<?php emailadr(); ?>">
+    </label>
+    <button class="btn btn-primary" type="submit">speichern</button>
+  </div>
+  </form>
+  <?php if(!@$_GET['del']) {echo '<a class="btn btn-danger" href="?del=true">Account löschen</a>';}?>
   </body>
 </html>
+<?php
+$id = $_SESSION['userid'];
+$email = @$_POST['email'];
+$username = @$_POST['username'];
+$password = @$_POST['password'];
+function username() {
+require '../php/users.php';
+$id = $_SESSION['userid'];
+$user = $pdo->prepare("SELECT * FROM users WHERE id = ?");
+$exec = $user->execute(array($id));
+while($row = $user->fetch()) {echo ($row['username']);}
+}
+function emailadr() {
+require '../php/users.php';
+$id = $_SESSION['userid'];
+$user = $pdo->prepare("SELECT * FROM users WHERE id = ?");
+$exec = $user->execute(array($id));
+while($row = $user->fetch()) {echo ($row['email']);}
+}
+
+  if (isset($_GET['submit'])) {
+    $query = $pdo->prepare("SELECT * FROM users WHERE id = ?");
+    $exec = $query->execute(array($id));
+    $query = $query->fetch();
+    if($password != 0) {
+      $pw = password_hash($password, PASSWORD_DEFAULT);
+      echo $pw;
+      $pwchange = $pdo->prepare("UPDATE users SET password = ? where id = $id");
+      $pwchange -> execute(array($pw));
+    }
+    if($username) {
+      if($username == $query['username']) {} else {
+      $userchange = $pdo->prepare("UPDATE users SET username = ? where id = $id");
+      $userchange -> execute(array($username));
+      }
+    }
+    if($email) {
+      if($email == $query['email']) {} else {
+      $emailchange = $pdo->prepare("UPDATE users SET email = ? where id = $id");
+      $emailchange -> execute(array($email));
+      }
+    }
+    header('Location: account.php');
+  }
+  if (isset($_GET['del'])) {
+    echo "<p></p>
+    <form action='?delverify=yes' method='post'>
+    <div class='form-group'>
+    <div class='alert alert-danger' role='alert'>Sind sie Sicher, dass Sie ihr Account löschen wollen?
+    <br>Ihr Account wird damit unwiderruflich gelöscht!</div>
+    <button class='btn btn-danger' type='submit'>Löschen!</button></div></div>
+    ";
+  }
+  if (isset($_GET['delverify'])) {
+    $del = $pdo->prepare("DELETE FROM users where id = $id");
+    $del -> execute(array($pw));
+    session_destroy();
+    header ("Location: ../index.php");
+  }
+ ?>
