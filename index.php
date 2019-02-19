@@ -4,7 +4,7 @@ if(file_exists('ini/db.ini') == FALSE) {
 }
 session_start();
  require 'php/itemtable.php';
- $table = "SELECT * FROM itemtable ORDER BY id DESC LIMIT 10";
+ $table = "SELECT * FROM itemtable ORDER BY id DESC";
  ?>
 <!doctype html>
 <html>

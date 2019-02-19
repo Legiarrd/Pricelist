@@ -67,7 +67,7 @@ if ($_SESSION == true) {
     </form>
 
     <?php
-    } //Ende von if($showFormular)
+    }
 
     if(isset($_GET['register'])) {
         $error = false;
