@@ -69,10 +69,10 @@ if ($_SESSION == true) {
      $from = "From: NoReply <noreply@test.tld>";
      $url_passwortcode = 'http://localhost/php/reset.php?userid='.$user['id'].'&code='.$passwortcode;
      $text = 'Hallo '.$user['username'].',
-    Um ein neues Passwort zu vergeben, rufe innerhalb der nächsten 24 Stunden die folgende Website auf:
+    Um ein neues Passwort zu vergeben, rufe innerhalb der nächsten 24 Stunden den folgenden Link auf:
     '.$url_passwortcode.'
 
-    Sollte dir dein Passwort wieder eingefallen sein oder hast du dies nicht angefordert, so bitte ignoriere diese E-Mail.';
+    Falls du dies nicht angefordert hast, so ignoriere diese E-Mail.';
 
      mail($empfaenger, $betreff, $text, $from);
 
