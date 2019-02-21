@@ -32,7 +32,6 @@ require '../php/adminitemtable.php';
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="navbar-nav">
-          <a class="btn btn-dark" href='index.php'>Admin Panel</a>
           <a class="btn btn-dark active" href='edit.php'>Einträge bearbeiten</a>
           <a class="btn btn-dark" href='add.php'>Eintrag hinzufügen</a>
           <a class="btn btn-dark" href='users.php'>Users</a>
