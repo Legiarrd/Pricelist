@@ -25,8 +25,8 @@ $users = "SELECT * FROM users";
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="nav navbar-nav">
-          <a class="btn btn-dark" href='edit.php'>Einträge bearbeiten</a>
           <a class="btn btn-dark" href='add.php'>Eintrag hinzufügen</a>
+          <a class="btn btn-dark" href='edit.php'>Einträge bearbeiten</a>
           <a class="btn btn-dark" href='users.php'>Users</a>
           <a class="btn btn-dark active" href='account.php'>Account bearbeiten</a>
         </div>
